@@ -1,30 +1,20 @@
 .counter-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: #f5f5f5;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
   transition: background-color 0.3s ease;
   overflow: hidden;
+  padding: 40px 60px;
 }
 
 .counter-container.dark {
-  background-color: #1a1a1a;
-}
-
-.spline-3d-background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 70%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: auto;
+  background-color: #0a0a0a;
 }
 
 .theme-switcher {
@@ -92,46 +82,86 @@
   transform: rotate(180deg);
 }
 
+.hero-title {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.hero-title h1 {
+  font-size: 12rem;
+  font-weight: 900;
+  line-height: 0.9;
+  margin: 0;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: 'Anton';
+}
+
+.counter-container.light .hero-title h1 {
+  color: #1a1a1a;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  flex: 1;
+  align-items: center;
+}
+
+.counter-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.spline-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Tamanho fixo */
+.spline-3d-viewer {
+  width: 1700px;
+  height: auto;
+}
+ 
+
 .counter-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 60px 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
-  min-width: 300px;
-  margin-left: 15%;
+  min-width: 350px;
+  max-width: 450px;
   position: relative;
   z-index: 10;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dark .counter-card {
-  background: rgba(30, 30, 30, 0.95);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.counter-container.light .counter-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .counter-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-.dark .counter-card:hover {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-.heart-icon {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0% { transform: scale(1); }
-  14% { transform: scale(1.1); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.1); }
-  70% { transform: scale(1); }
+.dark .counter-card:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
 
 .counter-display {
@@ -140,12 +170,13 @@
 
 .counter-number {
   display: block;
-  font-size: 4rem;
-  font-weight: bold;
+  font-size: 6rem;
+  font-weight: 900;
   color: #7700ff;
-  margin-bottom: 5px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   transition: color 0.3s ease;
+  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
 }
 
 .dark .counter-number {
@@ -154,15 +185,20 @@
 }
 
 .counter-label {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.5rem;
+  color: #999;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   transition: color 0.3s ease;
+  font-weight: 700;
 }
 
 .dark .counter-label {
-  color: #ccc;
+  color: #aaa;
+}
+
+.counter-container.light .counter-label {
+  color: #666;
 }
 
 .like-button {
@@ -205,23 +241,52 @@
   box-shadow: 0 2px 10px rgba(119, 0, 255, 0.3);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+  .hero-title h1 {
+    font-size: 8rem;
+  }
+  
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .spline-section {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .counter-container {
+    padding: 30px 40px;
+  }
+  
+  .hero-title h1 {
+    font-size: 5rem;
+  }
+  
   .counter-card {
-    margin: 20px;
-    padding: 30px 20px;
+    padding: 40px 30px;
+    min-width: 280px;
   }
   
   .counter-number {
-    font-size: 3rem;
-  }
-  
-  .heart-icon {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   
   .like-button {
     padding: 12px 30px;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title h1 {
+    font-size: 3.5rem;
+  }
+  
+  .counter-number {
+    font-size: 3rem;
   }
 }
 
