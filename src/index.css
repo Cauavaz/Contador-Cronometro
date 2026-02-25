@@ -234,10 +234,12 @@ main{
     html{
         overflow: auto;
     }
+
+
 }
 
 
-@media(max-width: 768px){
+@media(max-width: 1200px){
     header{
         padding: 1rem 0.1rem;
     }
@@ -295,6 +297,16 @@ main{
     html{
         overflow: auto;
     }
+    .content-visible {
+        margin-left: 10%;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 78%;
+        margin-top: 16rem;
+    }
+
 
 }
 
