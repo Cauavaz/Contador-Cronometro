@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Contador from './components/Contador/Contador';
 import Cronometro from './components/Cronometro/Cronometro';
+import TargetCursor from './TargetCursor';
 import gradientImage from './assets/images/gradient.png';
 
 function App() {
@@ -10,6 +11,13 @@ function App() {
 
   return (
     <div className="container">
+      <TargetCursor 
+        targetSelector=".cursor-target, .btn-get-started, .btn-signing-main, .btn-contador, .btn-cronometro, .btn-reset, .btn-close, .btn-signing"
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
       <img src={gradientImage} className="image-gradient" alt="gradient" />
       <div className="layer-blur"></div>
       
