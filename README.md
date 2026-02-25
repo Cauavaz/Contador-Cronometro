@@ -14,9 +14,10 @@
 - ⏱️ **Cronômetro Funcional** - Controle de tempo com play/pause e reset
 - 🎨 **Animações Fluidas** - Utilizando AOS (Animate On Scroll) e Motion
 - 🖱️ **Efeito de Proximidade** - Texto responsivo ao movimento do mouse
+- 🎯 **Cursor Personalizado** - Cursor interativo com animações GSAP que reage aos botões
 - 🤖 **Modelo 3D Interativo** - Robô 3D renderizado com Spline
 - 📱 **Design Responsivo** - Interface adaptável a diferentes dispositivos
-- 🎯 **Código Modular** - Arquitetura baseada em componentes reutilizáveis
+- 💎 **Código Modular** - Arquitetura baseada em componentes reutilizáveis
 
 ## 🏗️ Estrutura do Projeto
 
@@ -24,17 +25,13 @@
 src/
 ├── components/              # Componentes React reutilizáveis
 │   ├── Contador/           # Componente de contador
-│   │   ├── Contador.jsx
-│   │   └── Contador.css
+│   │   └── Contador.jsx
 │   ├── Cronometro/         # Componente de cronômetro
-│   │   ├── Cronometro.jsx
-│   │   └── Cronometro.css
+│   │   └── Cronometro.jsx
 │   ├── Header/             # Cabeçalho da aplicação
-│   │   ├── Header.jsx
-│   │   └── Header.css
+│   │   └── Header.jsx
 │   ├── Hero/               # Seção principal/hero
-│   │   ├── Hero.jsx
-│   │   └── Hero.css
+│   │   └── Hero.jsx
 │   └── VariableProximity/  # Efeito de proximidade do mouse
 │       ├── VariableProximity.jsx
 │       └── VariableProximity.css
@@ -51,6 +48,8 @@ src/
 │       └── react.svg
 ├── styles/                # Estilos globais
 │   └── index.css
+├── TargetCursor.jsx       # Cursor personalizado interativo
+├── TargetCursor.css       # Estilos do cursor
 ├── App.jsx                # Componente principal
 └── main.jsx              # Ponto de entrada da aplicação
 ```
@@ -67,6 +66,7 @@ src/
 - **DaisyUI 5.5.19** - Componentes prontos para Tailwind
 
 ### Animações e Efeitos
+- **GSAP 3.14.2** - Biblioteca de animações de alta performance para cursor interativo
 - **AOS (Animate On Scroll)** - Animações ao rolar a página
 - **Spline Viewer** - Renderização de modelos 3D
 - **Font Awesome 6.5.1** - Biblioteca de ícones
@@ -129,6 +129,7 @@ npm run lint     # Executa o linter ESLint
 - Interface intuitiva com ícones
 
 ### Efeitos Visuais
+- **Target Cursor**: Cursor personalizado com animações GSAP que reage aos botões e elementos interativos
 - **Variable Proximity**: Texto que reage ao movimento do mouse
 - **Animações AOS**: Elementos aparecem suavemente ao rolar
 - **Modelo 3D**: Robô interativo renderizado em tempo real
