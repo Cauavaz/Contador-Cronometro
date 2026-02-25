@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import VariableProximity from '../VariableProximity/VariableProximity';
-import './Hero.css';
 
 function Hero({ onSelectContador, onSelectCronometro }) {
   const containerRef = useRef(null);

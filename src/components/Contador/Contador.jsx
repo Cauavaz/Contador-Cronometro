@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './Contador.css';
 
 function Contador({ onClose }) {
   const [contador, setContador] = useState(0);

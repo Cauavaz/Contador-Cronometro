@@ -1,8 +1,8 @@
-# 📊 Análise da Estrutura do Projeto CHRONOS
+# Análise da Estrutura do Projeto CHRONOS
 
-## ✅ Melhorias Implementadas
+## Melhorias Implementadas
 
-### 1. Organização de Pastas (Boas Práticas React)
+### 1. Organização de Pastas 
 
 #### Antes:
 ```

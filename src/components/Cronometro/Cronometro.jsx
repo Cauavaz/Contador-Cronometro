@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { formatTime } from '../../utils/timeFormatter';
-import './Cronometro.css';
 
 function Cronometro({ onClose }) {
   const [cronometro, setCronometro] = useState(0);

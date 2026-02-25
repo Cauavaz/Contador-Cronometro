@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import VariableProximity from '../VariableProximity/VariableProximity';
-import './Header.css';
 
 function Header() {
   const containerRef = useRef(null);
