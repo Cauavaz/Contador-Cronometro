@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import { formatTime } from '../../utils/timeFormatter';
 
 function ContadorCronometro({ onClose, initialMode = 'contador' }) {
-  const [mode, setMode] = useState(initialMode); // 'contador' ou 'cronometro'
+  const [mode, setMode] = useState(initialMode);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  
-  // Estados do Contador
+
   const [contador, setContador] = useState(0);
-  
-  // Estados do Cronômetro
+
   const [cronometro, setCronometro] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
@@ -25,7 +23,6 @@ function ContadorCronometro({ onClose, initialMode = 'contador' }) {
     }, 300);
   };
 
-  // Funções do Cronômetro
   const startCronometro = () => {
     if (!isRunning) {
       const id = setInterval(() => {
@@ -53,7 +50,6 @@ function ContadorCronometro({ onClose, initialMode = 'contador' }) {
     setIsRunning(false);
   };
 
-  // Cleanup do intervalo ao desmontar
   useEffect(() => {
     return () => {
       if (intervalId) {
@@ -75,7 +71,6 @@ function ContadorCronometro({ onClose, initialMode = 'contador' }) {
         </div>
 
         {mode === 'contador' ? (
-          // Modo Contador
           <div className="contador-box">
             <button 
               className="btn-contador"
@@ -94,7 +89,6 @@ function ContadorCronometro({ onClose, initialMode = 'contador' }) {
             </button>
           </div>
         ) : (
-          // Modo Cronômetro
           <div className="cronometro-box">
             <button 
               className="btn-cronometro" 
