@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import Contador from './components/Contador/Contador';
-import Cronometro from './components/Cronometro/Cronometro';
+import ContadorCronometro from './components/ContadorCronometro/ContadorCronometro';
 import TargetCursor from './TargetCursor';
 import gradientImage from './assets/images/gradient.png';
 
 function App() {
   const [mostrar, setMostrar] = useState(1);
+  const [initialMode, setInitialMode] = useState('contador');
 
   return (
     <div className="container">
       <TargetCursor 
-        targetSelector=".cursor-target, .btn-get-started, .btn-signing-main, .btn-contador, .btn-cronometro, .btn-reset, .btn-close, .btn-signing"
+        targetSelector=".cursor-target, .btn-get-started, .btn-signing-main, .btn-contador, .btn-cronometro, .btn-reset, .btn-transform, .btn-close, .btn-signing"
         spinDuration={2}
         hideDefaultCursor
         parallaxOn
@@ -26,17 +26,22 @@ function App() {
       <main>
         {mostrar === 1 && (
           <Hero 
-            onSelectContador={() => setMostrar(2)}
-            onSelectCronometro={() => setMostrar(3)}
+            onSelectContador={() => {
+              setInitialMode('contador');
+              setMostrar(2);
+            }}
+            onSelectCronometro={() => {
+              setInitialMode('cronometro');
+              setMostrar(2);
+            }}
           />
         )}
         
         {mostrar === 2 && (
-          <Contador onClose={() => setMostrar(1)} />
-        )}
-        
-        {mostrar === 3 && (
-          <Cronometro onClose={() => setMostrar(1)} />
+          <ContadorCronometro 
+            onClose={() => setMostrar(1)} 
+            initialMode={initialMode}
+          />
         )}
       </main>
      

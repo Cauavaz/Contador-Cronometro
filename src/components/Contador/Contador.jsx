@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Contador({ onClose }) {
+function Contador({ onClose, onTransform }) {
   const [contador, setContador] = useState(0);
 
   return (
@@ -36,9 +36,14 @@ function Contador({ onClose }) {
           </button>
         </div>
 
-        <button className="btn-reset" onClick={() => setContador(0)}>
-          Resetar
-        </button>
+        <div className="buttons-container">
+          <button className="btn-reset" onClick={() => setContador(0)}>
+            Resetar
+          </button>
+          <button className="btn-transform" onClick={onTransform}>
+            Transformar
+          </button>
+        </div>
       </div>
     </div>
   );
