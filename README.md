@@ -4,14 +4,15 @@
 ![Vite](https://img.shields.io/badge/Vite-7.3.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-4.2.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 **CHRONOS** é uma aplicação web moderna e interativa desenvolvida em React que oferece funcionalidades de contador e cronômetro com uma interface 3D imersiva. O projeto utiliza animações avançadas, efeitos de proximidade do mouse e um modelo 3D interativo para proporcionar uma experiência única ao usuário.
 
-### ✨ Características Principais
+### Características Principais
 
 - 🔢 **Contador Interativo** - Incrementa e decrementa valores com feedback visual
 - ⏱️ **Cronômetro Funcional** - Controle de tempo com play/pause e reset
+- 🔄 **Transformação Suave** - Transição animada entre contador e cronômetro
 - 🎨 **Animações Fluidas** - Utilizando AOS (Animate On Scroll) e Motion
 - 🖱️ **Efeito de Proximidade** - Texto responsivo ao movimento do mouse
 - 🎯 **Cursor Personalizado** - Cursor interativo com animações GSAP que reage aos botões
@@ -24,34 +25,35 @@
 ```
 src/
 ├── components/              # Componentes React reutilizáveis
-│   ├── Contador/           # Componente de contador
+│   ├── Contador/           # Componente de contador (legado)
 │   │   └── Contador.jsx
-│   ├── Cronometro/         # Componente de cronômetro
+│   ├── ContadorCronometro/ # 🆟 Componente unificado com transformação
+│   │   └── ContadorCronometro.jsx
+│   ├── Cronometro/         # Componente de cronômetro (legado)
 │   │   └── Cronometro.jsx
 │   ├── Header/             # Cabeçalho da aplicação
 │   │   └── Header.jsx
 │   ├── Hero/               # Seção principal/hero
 │   │   └── Hero.jsx
-│   └── VariableProximity/  # Efeito de proximidade do mouse
-│       ├── VariableProximity.jsx
-│       └── VariableProximity.css
+│   ├── VariableProximity/  # Efeito de proximidade do mouse
+│   │   ├── VariableProximity.jsx
+│   │   └── VariableProximity.css
+│   └── index.js           # 🆟 Export central de componentes
 ├── hooks/                  # Custom React Hooks
 │   ├── useAnimationFrame.js
 │   └── useMousePositionRef.js
 ├── utils/                  # Funções utilitárias
 │   └── timeFormatter.js
 ├── assets/                 # Recursos estáticos
-│   ├── images/            # Imagens do projeto
-│   │   ├── robo.png
-│   │   └── gradient.png
-│   └── icons/             # Ícones
-│       └── react.svg
-├── styles/                # Estilos globais
-│   └── index.css
-├── TargetCursor.jsx       # Cursor personalizado interativo
-├── TargetCursor.css       # Estilos do cursor
-├── App.jsx                # Componente principal
-└── main.jsx              # Ponto de entrada da aplicação
+│   └── react.svg           # Ícone React
+├── styles/                 # Estilos globais
+│   └── index.css          # CSS principal e responsivo
+├── TargetCursor.jsx        # 🆟 Cursor personalizado interativo
+├── TargetCursor.css        # 🆟 Estilos do cursor
+├── VariableProximity.jsx    # 🆟 Componente de proximidade (raiz)
+├── VariableProximity.css    # 🆟 Estilos do componente
+├── App.jsx                 # Componente principal
+└── main.jsx               # Ponto de entrada da aplicação
 ```
 
 ## 🚀 Tecnologias Utilizadas
@@ -86,7 +88,7 @@ src/
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/Cauavaz/CHRONOS.git
+git clone https://github.com/Cauavaz/Contador-Cronometro.git
 cd CHRONOS
 ```
 
@@ -128,6 +130,12 @@ npm run lint     # Executa o linter ESLint
 - Reset para reiniciar a contagem
 - Interface intuitiva com ícones
 
+### 🆟 Transformação Suave
+- **Botão "Transformar"**: Alterna entre contador e cronômetro
+- **Animação CSS**: Fade out/in com scale e rotate (300ms)
+- **Transição contínua**: Elemento se transforma sem desaparecer
+- **Modo inicial**: Escolha direta pelo botão no Hero
+
 ### Efeitos Visuais
 - **Target Cursor**: Cursor personalizado com animações GSAP que reage aos botões e elementos interativos
 - **Variable Proximity**: Texto que reage ao movimento do mouse
@@ -143,6 +151,12 @@ O projeto foi desenvolvido com mobile-first em mente, garantindo uma experiênci
 - 💻 Desktops
 - 🖥️ Telas grandes
 
+### Breakpoints Implementados
+- **768px**: Tablets e dispositivos médios
+- **480px**: Smartphones
+- **435px**: Smartphones pequenos
+- **360px**: Smartphones muito pequenos
+
 ## 🎨 Boas Práticas Implementadas
 
 ### Arquitetura
@@ -150,11 +164,12 @@ O projeto foi desenvolvido com mobile-first em mente, garantindo uma experiênci
 - ✅ Componentes reutilizáveis e modulares
 - ✅ Custom hooks para lógica compartilhada
 - ✅ Funções utilitárias isoladas
+- 🆟 Componente unificado para melhor UX
 
 ### Código
 - ✅ Nomenclatura clara e descritiva
 - ✅ Código limpo e bem formatado
-- ✅ Comentários quando necessário
+- ✅ Sem comentários desnecessários
 - ✅ ESLint configurado
 
 ### Performance
@@ -162,35 +177,23 @@ O projeto foi desenvolvido com mobile-first em mente, garantindo uma experiênci
 - ✅ Otimização de re-renders
 - ✅ Uso eficiente de hooks
 - ✅ Build otimizado com Vite
+- 🆟 Animações otimizadas com CSS
 
 ### Acessibilidade
 - ✅ Atributos ARIA quando necessário
 - ✅ Semântica HTML adequada
 - ✅ Suporte a leitores de tela
 
+## 🔄 Fluxo de Transformação
+
+1. **Acesso inicial**: Hero com botões "Contador" e "Cronômetro"
+2. **Modo selecionado**: Abre diretamente no modo escolhido
+3. **Transformação**: Botão "Transformar" alterna entre modos com animação
+4. **Animação**: Fade out → Troca conteúdo → Fade in (300ms total)
+
 ## 👨‍💻 Autor
 
 **Cauã Vaz**
 - GitHub: [@Cauavaz](https://github.com/Cauavaz)
-- Projeto: [CHRONOS](https://github.com/Cauavaz/CHRONOS)
+- Projeto: [CHRONOS](https://github.com/Cauavaz/Contador-Cronometro)
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para:
-1. Fazer um fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abrir um Pull Request
-
-## 📞 Suporte
-
-Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue no GitHub.
-
----
-
-⭐ Se este projeto foi útil para você, considere dar uma estrela no repositório!
